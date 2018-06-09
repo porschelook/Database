@@ -49,12 +49,13 @@ $(document).ready(function() {
 
     	<div id="gallery">
                 <ul>
-                <?php  require 'RoomMgnt'; 
+                <?php  require "class/RoomMgnt.php";
                 $roomdetail = RoomMgnt::getRoom($roomid); ?>
+                
                     <li>
                         
-                        <a class="pirobox" href="images/gallery/image_01_b.jpg" title="Project I">
-                            <img src="images/gallery/image_01.jpg" alt="Image" class="image_wrapper" />
+                        <a class="pirobox" href="images/<?php echo $roomdetail -> getRImage();?>.jpg" title="Project I">
+                            <img src="images/<?php echo $roomdetail -> getRImage();?>.jpg" alt="Image" class="image_wrapper" />
                         </a>
 						<h4></h4></a>
 						<div class="tab1">
@@ -63,7 +64,7 @@ $(document).ready(function() {
 								<h6>รายละเอียด</h6>
 								<p><?php echo $roomdetail->getRDes();?></p>
 								<h6>ราคา</h6>
-								<p><?php echo $roomdetail->getRprice();?></p>
+								<p><?php echo $roomdetail->getRPrice();?> บาท</p>
 							</div>
 						</div>
 					</li>

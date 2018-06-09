@@ -2,13 +2,13 @@
 class Room
 {
 	
-	private $RType, $RQuan,$RImage;
+	private $RType, $RQuan;
 	
-	public function __construct( $RType,$RImage,$RQuan)
+	public function __construct( $RType,$RQuan)
 	{
 		
 		$this->RType= $RType;
-		$this->RImage= $RImage;
+		
 		$this->RQuan= $RQuan;
 		
 	}
@@ -28,10 +28,6 @@ class Room
 		return $this->RQuan;
 	}
 	
-	public function getRImage()
-	{
-		return $this->RImage;
-	}
 	
 	
 	public function setRType($RType)
@@ -45,10 +41,7 @@ class Room
 		$this->RQuan= $RQuan;
 	}
 	
-	public function setRImage($RImage)
-	{
-		$this->RImage= $RImage;
-	}
+	
 	
 }
 
