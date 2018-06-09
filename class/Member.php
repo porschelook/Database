@@ -92,14 +92,13 @@ class Member
 
   public function AddMate($conn)
   {
-
-      $sql = "SELECT COUNT(m_rid) AS cData FROM mate WHERE m_rid = '".$this->_rid."'";
+      $sql = "SELECT COUNT(m_rid) AS mData FROM member WHERE m_rid = '".$this->_rid."'";
       $rs = $conn->query($sql) or die($sql."<br>".$conn->error);
       $data = $rs->fetch_array();
 
-      if($data['cData'] != 0) {
+      if($data['mData'] != 0) {
 
-          echo "<script>alert('ห้องนี้มีผู้พักอาศัย 2 คนเเล้ว');window.history.back()</script>";
+          echo "<script>alert('ไม่สามารถเพิ่ม Room mate ได้');window.history.back()</script>";
           return -1;
 
       }

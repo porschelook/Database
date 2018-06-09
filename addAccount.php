@@ -16,21 +16,28 @@
   $rmphone =$_REQUEST['rmPhone'];
   $rmemail = $_REQUEST['rmMail'];
 
-  if($rmfname == "" && $rmlname == "" && $rmcid == "" && $rmphone == "" && $rmemail == ""){
-    $mate = 0;
-    $mem = new Member($rid,$fname,$lname,$cid,$phone,$email,$mate);
-    $mem->addAccount($conn);
+  if($rmfname == "" && $rmlname == "" && $rmcid == "" && $rmphone == "" && $rmemail == ""
+    && $rid == "" && $fname == "" && $lname == "" && $cid == "" && $phone == "" && $email == "")
+  {
+    echo "<script>alert('Please insert information.');window.history.back()</script>";
 
   }else{
-    $mate = 1;
-    $mem = new Member($rid,$fname,$lname,$cid,$phone,$email,$mate);
-    $mem->addAccount($conn);
+    if($rmfname == "" && $rmlname == "" && $rmcid == "" && $rmphone == "" && $rmemail == ""){
+      $mate = 0;
 
-    $rmmem = new Member($rid,$fname,$lname,$cid,$phone,$email,$mate);
-    $rmmem->AddMate($conn);
+      $mem = new Member($rid,$fname,$lname,$cid,$phone,$email,$mate);
+      $mem->addAccount($conn);
+
+    }else{
+      $mate = 1;
+      $mem = new Member($rid,$fname,$lname,$cid,$phone,$email,$mate);
+      $mem->addAccount($conn);
+
+      $rmmem = new Member($rid,$rmfname,$rmlname,$rmcid,$rmphone,$rmemail,$mate);
+      $rmmem->AddMate($conn);
+
+    }
 
   }
-
-
 
 ?>
