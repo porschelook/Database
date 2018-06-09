@@ -49,7 +49,8 @@ $(document).ready(function() {
 
     	<div id="gallery">
                 <ul>
-                <?php $roomdetail = RoomMgnt::getRoom($roomid); ?>
+                <?php  require 'RoomMgnt'; 
+                $roomdetail = RoomMgnt::getRoom($roomid); ?>
                     <li>
                         
                         <a class="pirobox" href="images/gallery/image_01_b.jpg" title="Project I">
