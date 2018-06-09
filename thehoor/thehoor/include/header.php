@@ -1,5 +1,5 @@
 <?php
-    session_start();
+session_start();
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -42,9 +42,11 @@ http://www.tooplate.com/view/2037-orange-sea
                   $file = basename($path, ".php"); // $file is set to "index"
                 ?>
                 <li <?=($file == "index")? " class=\"active\"" : "" ; ?>><a href="index.php">Home</a></li>
+                <li <?=($file == "room")? " class=\"active\"" : "" ; ?>><a href="room.php">Room</a></li>
                 <li <?=($file == "about")? " class=\"active\"" : "" ; ?>><a href="about.php">About Us</a></li>
                 <li <?=($file == "blog")? " class=\"active\"" : "" ; ?>><a href="blog.php">Blog</a></li>
-                <li <?=($file == "gallery")? " class=\"active\"" : "" ; ?>><a href="gallery.php">Gallery</a></li>
+                
+                <li <?=($file == "login")? " class=\"active\"" : "" ; ?>><a href="Login.php">Login</a></li>
                 <?php
                     if(isset($_SESSION["a_id"])){
                 ?>
