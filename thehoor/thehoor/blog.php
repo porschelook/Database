@@ -1,7 +1,14 @@
 <?php
 $path = "blog.php";
 include "include/header.php";
+require "class/RoomMgnt.php";
+
+$roomnum = RoomMgnt::getRoombyRoomID(111,1103000122777);
+//echo $roomnum -> getMfname();
+$room = RoomMgnt::getRoombyRoomNumber($roomnum -> getMroom());
+//$r_type= (string)$roomid;
 ?>
+
 
 		<div id="tooplate_sp_middle">
 			<div id="mid_title">

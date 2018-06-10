@@ -2,12 +2,13 @@
 class Member
 {
 	
-	private $Mroom,$Mfname,$Mlname,$Mcid, $Mphone,$Memail,$Mmate;
+	private $Mroom,$Mexp,$Mfname,$Mlname,$Mcid, $Mphone,$Memail,$Mmate;
 	
-	public function __construct( $Mroom,$Mfname,$Mlname,$Mcid, $Mphone,$Memail,$Mmate)
+	public function __construct( $Mroom,$Mexp,$Mfname,$Mlname,$Mcid, $Mphone,$Memail,$Mmate)
 	{
 		
 		$this->Mroom= $Mroom;
+		$this->Mexp= $Mexp;
 		$this->Mfname= $Mfname;
 		$this->Mlname= $Mlname;
 		$this->Mcid= $Mcid;
@@ -18,6 +19,10 @@ class Member
 	
 	
 	
+	public function getMexp()
+	{
+		return $this->Mexp;
+	}
 	
 	
 	public function getMroom()
@@ -85,6 +90,10 @@ class Member
 	public function setMmate($Mmate)
 	{
 		$this->Mmate= $Mmate;
+	}
+	public function setMexp($Mexp)
+	{
+		$this->Mexp= $Mexp;
 	}
 }
 

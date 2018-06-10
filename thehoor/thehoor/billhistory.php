@@ -1,6 +1,14 @@
 <?php
-$path = "myroom.php";
+
+$path = "gallery.php";
 include "include/header.php";
+$roomid=$_GET['m_id'];
+//require "class/RoomMgnt.php";
+require 'class/BillMgnt.php';
+//$room = RoomMgnt::getRoombyRoomNumber($roomnum -> getMroom());
+$roomnum = BillMgnt::getMemByBillID($roomid);
+$billarr= BillMgnt::getAllBill($roomid);
+//$r_type= (string)$roomid;
 ?>
 
 
@@ -30,39 +38,42 @@ $(document).ready(function() {
 </script>
 <!--////// END  \\\\\\\-->
 
-
 		<div id="tooplate_sp_middle">
 			<div id="mid_title">
-				MY ROOM
+				<?php echo $roomnum -> getMfname(); ?> <?php echo $roomnum -> getMlname();?>
 			</div>
-			<p>Please Complete the field.</p>
+			<p></p>
 			<div class="cleaner"></div>
 		</div> <!-- end of middle -->
 
-		<div id="tooplate_main">
+    <div id="tooplate_main">
 
-			<div class="col_w450 float_l">
-					<div id="contact_form">
+    	<div id="gallery"> 
+                <ul>
+                
+                
+                    <li>
+                        <div class="tab1">
+
+							<div class="single_page">
+                      <?php 
+                      foreach ($billarr as $bill) {?>
+                       <?php echo $billarr -> getbillnum();?>
+                       <?php }?>
+                       </div>
+						</div>
+					</li>
+                   
+                   
+              </ul>
+
+              <div class="cleaner"></div>
+          </div>
+
+    	<div class="cleaner"></div>
+    </div> <!-- end of main -->
 
 
-
-						<form method="post" name="contact" action="myroom.php">
-
-							<label for="author">ห้องเลขที่ :</label> <input type="text" id="author" name="m_rid" class="required input_field" />
-							<div class="cleaner h10"></div>
-
-							<label for="email">เลขบัตรประชาชน </label> <input type="password" class="validate-email required input_field" name="m_cid" id="email" />
-							<div class="cleaner h10"></div>
-
-							<input type="submit" value="ตกลง" id="submit" name="login" class="submit_btn float_l" />
-
-						</form>
-
-					</div>
-				</div>
-
-			<div class="cleaner"></div>
-		</div> <!-- end of main -->
 
 	</div> <!-- end of fp wrapper -->
 </div> <!-- end of fp 100% wrapper -->

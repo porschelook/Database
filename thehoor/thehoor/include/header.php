@@ -22,7 +22,11 @@ http://www.tooplate.com/view/2037-orange-sea
       if(isset($_SESSION["a_id"])){
         echo '<span style="color:#ffffff;text-align:center;">Welcome Admin!';
         echo  "\t" . '<span text-align:center;"><a href="Logout.php">Logout</a>';
-      }else{
+      }
+      
+      
+      
+      else{
         echo '<li><a href="Login-page.php"><i class="fa fa-user"></i> Login</a></li>';
       }
   ?>
