@@ -34,7 +34,7 @@ class RoomDetail
 	
 	public function getRName()
 	{
-		return $this->$RName;
+		return $this->RName;
 	}
 	
 	public function getRPrice()
