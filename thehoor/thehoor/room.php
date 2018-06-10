@@ -53,15 +53,15 @@ $(document).ready(function() {
 					</li>
                     <li>
                         <span><a href="room-detail.php?r_type=2">ห้องขนาดกลาง</a></span>
-                        <a class="pirobox" href="images/gallery/Hotel.jpg" title="Project II">
-                        	<img src="images/Hotel.jpg" alt="Image" class="image_wrapper" />
+                        <a class="pirobox" href="images/gallery/faddd.jpg" title="Project II">
+                        	<img src="images/faddd.jpg" alt="Image" class="image_wrapper" />
                         </a>
                        <h4> ห้องกลางหมาะสำหรับผู้อาศัย 1-2คน</h4></a>
                     </li>
                     <li class="lmb">
                         <span><a href="room-detail.php?r_type=3">ห้องขนาดใหญ่</a></span>
-                        <a class="pirobox" href="images/gallery/faddd.jpg" title="Project III">
-                        	<img src="images/faddd.jpg" alt="Image" class="image_wrapper" />
+                        <a class="pirobox" href="images/gallery/Hotel.jpg" title="Project III">
+                        	<img src="images/Hotel.jpg" alt="Image" class="image_wrapper" />
                         </a>
                          <h4>ห้องใหญ่เหมาะสำหรับผู้อาศัย 2-3คน</h4></a>
                     </li>

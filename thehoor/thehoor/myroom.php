@@ -1,5 +1,5 @@
 <?php
-$path = "gallery.php";
+$path = "Login-page.php";
 include "include/header.php";
 ?>
 
@@ -33,67 +33,36 @@ $(document).ready(function() {
 
 		<div id="tooplate_sp_middle">
 			<div id="mid_title">
-				Our Gallery
+				MY ROOM
 			</div>
-			<p>Sed mattis nulla id enim facilisis aliquet. Aliquam erat volutpat. Sed vehicula, nulla vel interdum mattis, ante augue condimentum est, at mollis felis nunc sed lectus. Maecenas vel nisl ante. </p>
+			<p>Complete the field.</p>
 			<div class="cleaner"></div>
 		</div> <!-- end of middle -->
 
-    <div id="tooplate_main">
+		<div id="tooplate_main">
 
-    	<div id="gallery">
-                <ul>
-                    <li>
-                        <span><a href="#">Project I</a></span>
-                        <a class="pirobox" href="images/gallery/image_01_b.jpg" title="Project I">
-                            <img src="images/gallery/image_01.jpg" alt="Image" class="image_wrapper" />
-                        </a>
-						Aenean at accumsan ante. Etiam rutrum pharetra. Validate <a href="http://validator.w3.org/check?uri=referer" rel="nofollow"><strong>XHTML</strong></a> and <a href="http://jigsaw.w3.org/css-validator/check/referer" rel="nofollow"><strong>CSS</strong></a>.
-					</li>
-                    <li>
-                        <span><a href="#">Project II</a></span>
-                        <a class="pirobox" href="images/gallery/image_02_b.jpg" title="Project II">
-                        	<img src="images/gallery/image_02.jpg" alt="Image" class="image_wrapper" />
-                        </a>
-                        Sed in urna neque nec arcu arcu, sed pretium lacus. Aliquam in ipsum mollis facilisis.
-                    </li>
-                    <li class="lmb">
-                        <span><a href="#">Project III</a></span>
-                        <a class="pirobox" href="images/gallery/image_03_b.jpg" title="Project III">
-                        	<img src="images/gallery/image_03.jpg" alt="Image" class="image_wrapper" />
-                        </a>
-                        Integer est sem, dignissim quis auctor vel, dapibus massa. Curabitur ligula tempus.
-                    </li>
-                    <li>
-                        <span><a href="#">Project IV</a></span>
-                        <a class="pirobox" href="images/gallery/image_04_b.jpg" title="Project IV">
-                        <img src="images/gallery/image_04.jpg" alt="Image" class="image_wrapper" />
-                        </a>
-                        Vivamus volutpat, elit non tempor vehicula, odio arcu dignissim mauris, a orci non justo.
-                    </li>
-                    <li>
-                        <span><a href="#">Project V</a></span>
-						<a class="pirobox" href="images/gallery/image_05_b.jpg" title="Project V">
-                        <img src="images/gallery/image_05.jpg" alt="Image" class="image_wrapper" />
-						</a>
-						Curabitur volutpat, quam sed cursus elementum, mauris facilisis turpis.
-                    </li>
-					<li class="lmb">
-						<span><a href="#">Project VI</a></span>
-                        <a class="pirobox" href="images/gallery/image_06_b.jpg" title="Project VI">
-                        <img src="images/gallery/image_06.jpg" alt="Image" class="image_wrapper" />
-						</a>
-						Nunc at lectus justo, in auctor metus. Etiam vel orci vitae elit laoreet dignissim mauris.
-					</li>
-              </ul>
-
-              <div class="cleaner"></div>
-          </div>
-
-    	<div class="cleaner"></div>
-    </div> <!-- end of main -->
+			<div class="col_w450 float_l">
+					<div id="contact_form">
 
 
+
+						<form method="post" name="contact" action="Login.php">
+
+							<label for="author">ห้องเลขที่ :</label> <input type="text" id="author" name="ausername" class="required input_field" />
+							<div class="cleaner h10"></div>
+
+							<label for="email">เลขบัตรประชาชน </label> <input type="password" class="validate-email required input_field" name="apassword" id="email" />
+							<div class="cleaner h10"></div>
+
+							<input type="submit" value="ตกลง" id="submit" name="login" class="submit_btn float_l" />
+
+						</form>
+
+					</div>
+				</div>
+
+			<div class="cleaner"></div>
+		</div> <!-- end of main -->
 
 	</div> <!-- end of fp wrapper -->
 </div> <!-- end of fp 100% wrapper -->
