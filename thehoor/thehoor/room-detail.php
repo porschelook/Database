@@ -40,7 +40,18 @@ $(document).ready(function() {
 
 		<div id="tooplate_sp_middle">
 			<div id="mid_title">
-				ห้องขนาด<?php echo $roomdetail -> getRType();?> 
+				ห้องขนาด<?php  if($roomid == "1"){
+				echo "เล็ก";
+				} else if($roomid == "2"){
+					echo "กลาง";
+				}
+				else if($roomid == "3"){
+					echo "ใหญ่";
+				}
+				
+				
+				
+				?> 
 			</div>
 			<p></p>
 			<div class="cleaner"></div>
