@@ -1,5 +1,5 @@
 <?php
-$path = "addAccount-page.php";
+$path = "addRoom-page.php";
 include "include/header.php";
 ?>
 
@@ -33,7 +33,7 @@ $(document).ready(function() {
 
 		<div id="tooplate_sp_middle">
 			<div id="mid_title">
-				Add Account
+				Add Room
 			</div>
 			<p>Please complete the information.</p>
 			<div class="cleaner"></div>
@@ -44,52 +44,25 @@ $(document).ready(function() {
 			<div class="col_w450 float_l">
 					<div id="contact_form">
 
-						<h4>Account Information</h4>
+						<h4>Room Information</h4>
 
-						<form method="post" name="contact" action="addAccount.php">
+						<form method="post" name="contact" action="addRoom.php">
 
-							<label for="author">Room ID:</label> <input type="text" id="author" name="mRID" class="required input_field" />
+							<label for="author">Room ID :</label> <input type="text" id="author" name="roomid" class="required input_field" />
 							<div class="cleaner h10"></div>
 
-							<label for="text">EXP date:</label> <input type="date" class="validate-subject required input_field" name="mExp" rows="0" cols="0" class="required"></>
+              <label for="text">Description :</label> <textarea id="text" name="roomdes" rows="0" cols="0" class="required"></textarea>
 							<div class="cleaner h10"></div>
 
-							<label for="author">First Name:</label> <input type="text" id="author" name="mFname" class="required input_field" />
+							<label for="email">Room Type :</label> <input type="text" class="validate-email required input_field" name="roomtype" id="email" />
 							<div class="cleaner h10"></div>
 
-							<label for="email">Last Name:</label> <input type="text" class="validate-email required input_field" name="mLname" id="email" />
+							<label for="subject">Room Price :</label> <input type="text" class="validate-subject required input_field" name="roomprice" id="subject"/>
 							<div class="cleaner h10"></div>
 
-							<label for="subject">Citizen ID:</label> <input type="text" class="validate-subject required input_field" name="mCID" id="subject"/>
-							<div class="cleaner h10"></div>
-
-							<label for="text">Phone Number:</label> <input tpye="text" class="validate-subject required input_field" name="mPhone" rows="0" cols="0" class="required"></>
-							<div class="cleaner h10"></div>
-
-							<label for="text">Email:</label> <input type="text" class="validate-subject required input_field" name="mMail" rows="0" cols="0" class="required"></>
-							<div class="cleaner h10"></div>
 
 							<div class="col_w450 float_l">
 									<div id="contact_form">
-
-										<h4>Room Mate Information (Optional)</h4>
-
-
-
-											<label for="author">First Name:</label> <input type="text" id="author" name="rmFname" value="" class="required input_field" />
-											<div class="cleaner h10"></div>
-
-											<label for="email">Last Name:</label> <input type="text" class="validate-email required input_field" name="rmLname"  value="" id="email" />
-											<div class="cleaner h10"></div>
-
-											<label for="subject">Citizen ID:</label> <input type="text" class="validate-subject required input_field" name="rmCID"  value="" id="subject"/>
-											<div class="cleaner h10"></div>
-
-											<label for="text">Phone Number:</label> <input tpye="text" class="validate-subject required input_field" name="rmPhone"  value="" rows="0" cols="0" class="required"></>
-											<div class="cleaner h10"></div>
-
-											<label for="text">Email:</label> <input type="text" class="validate-subject required input_field" name="rmMail"  value="" rows="0" cols="0" class="required"></>
-											<div class="cleaner h10"></div>
 
 											<input type="submit" value="Submit" id="submit" name="submit" class="submit_btn float_l" />
 											<input type="reset" value="Reset" id="reset" name="reset" class="submit_btn float_r" />

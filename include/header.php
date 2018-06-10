@@ -42,13 +42,13 @@ http://www.tooplate.com/view/2037-orange-sea
                   $file = basename($path, ".php"); // $file is set to "index"
                 ?>
                 <li <?=($file == "index")? " class=\"active\"" : "" ; ?>><a href="index.php">Home</a></li>
-                <li <?=($file == "about")? " class=\"active\"" : "" ; ?>><a href="about.php">About Us</a></li>
                 <li <?=($file == "blog")? " class=\"active\"" : "" ; ?>><a href="blog.php">Blog</a></li>
-                <li <?=($file == "gallery")? " class=\"active\"" : "" ; ?>><a href="gallery.php">Gallery</a></li>
+                <li <?=($file == "gallery")? " class=\"active\"" : "" ; ?>><a href="room.php">Room</a></li>
                 <?php
                     if(isset($_SESSION["a_id"])){
                 ?>
-                      <li <?=($file == "contact")? " class=\"active\"" : "" ; ?>><a href="addAccount-page.php">Add</a></li>
+                      <li <?=($file == "addAccount")? " class=\"active\"" : "" ; ?>><a href="addAccount-page.php">Add</a></li>
+                      <li <?=($file == "contact")? " class=\"active\"" : "" ; ?>><a href="roomlist-page.php">Roomlist</a></li>
                 <?php
                     }
                 ?>

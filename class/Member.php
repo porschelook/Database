@@ -3,6 +3,7 @@
 class Member
 {
   private $_rid;
+  private $_exp;
   private $_fname;
   private $_lname;
   private $_cid;
@@ -15,6 +16,12 @@ class Member
   }
   public function getrID(){
     return $this->_rid;
+  }
+  public function setExp($exp){
+    $this->_exp =  $exp;
+  }
+  public function getExp(){
+    return $this->_exp;
   }
   public function setFname($fname){
     $this->_fname =  $fname;
@@ -52,10 +59,12 @@ class Member
   public function getMate(){
     return $this->_mate;
   }
-  public function __construct($rid,$fname,$lname,$cid,$phone,$email,$mate)
+
+  public function __construct($rid,$exp,$fname,$lname,$cid,$phone,$email,$mate)
   {
 
       $this->_rid = $rid;
+      $this->_exp = $exp;
       $this->_fname =$fname;
       $this->_lname = $lname;
       $this->_cid =  $cid;
@@ -80,9 +89,9 @@ class Member
       }
 
       $sql = "INSERT INTO member
-                (m_rid, m_fname, m_lname, m_cid, m_phone, m_email, m_mate)
+                (m_rid, m_exp, m_fname, m_lname, m_cid, m_phone, m_email, m_mate)
                 VALUES
-                ('".$this->_rid."','".$this->_fname."','".$this->_lname."','".$this->_cid."','".$this->_phone."','".$this->_email."','".$this->_mate."')";
+                ('".$this->_rid."','".$this->_exp."','".$this->_fname."','".$this->_lname."','".$this->_cid."','".$this->_phone."','".$this->_email."','".$this->_mate."')";
       $conn->query($sql) or die($sql."<br>".$conn->error);
         if($this->_mate == 0){
           echo "<script>alert('Member Added!');window.location='addAccount-page.php'</script>";
@@ -92,13 +101,13 @@ class Member
 
   public function AddMate($conn)
   {
-      $sql = "SELECT COUNT(m_rid) AS mData FROM member WHERE m_rid = '".$this->_rid."'";
+      $sql = "SELECT COUNT(m_rid) AS mData FROM mate WHERE m_rid = '".$this->_rid."'";
       $rs = $conn->query($sql) or die($sql."<br>".$conn->error);
       $data = $rs->fetch_array();
 
       if($data['mData'] != 0) {
 
-          echo "<script>alert('ไม่สามารถเพิ่ม Room mate ได้');window.history.back()</script>";
+          echo "<script>alert('ไม่สามารถเพิ่ม Room mate ได้ - ห้องนี้มี Room mate เเล้ว');window.history.back()</script>";
           return -1;
 
       }
@@ -109,6 +118,24 @@ class Member
                 ('".$this->_rid."','".$this->_fname."','".$this->_lname."','".$this->_cid."','".$this->_phone."','".$this->_email."')";
       $conn->query($sql) or die($sql."<br>".$conn->error);
       echo "<script>alert('Member And Room-mate Added!');window.location='addAccount-page.php'</script>";
+  }
+
+  public function getMemberByID($conn,$roomid)
+  {
+    $sql = "SELECT * FROM member WHERE m_rid = '".$roomid."'";
+    $rs = $conn->query($sql) or die($sql."<br>".$conn->error);
+
+    $data = $rs->fetch_array();
+
+    $this->_rid = $data['m_rid'];
+    $this->_exp = $data['m_exp'];
+    $this->_fname = $data['m_fname'];
+    $this->_lname = $data['m_lname'];
+    $this->_cid = $data['m_cid'];
+    $this->_phone =  $data['m_phone'];
+    $this->_email = $data['m_email'];
+    $this->_mate = $data['m_mate'];
+
   }
 
 
