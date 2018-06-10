@@ -35,11 +35,12 @@ $(document).ready(function() {
 });
 </script>
 <!--////// END  \\\\\\\-->
-
+<?php  require "class/RoomMgnt.php";
+                $roomdetail = RoomMgnt::getRoom($roomid); ?>
 
 		<div id="tooplate_sp_middle">
 			<div id="mid_title">
-				ห้องขนาด
+				ห้องขนาด<?php echo $roomdetail -> getRType();?> 
 			</div>
 			<p></p>
 			<div class="cleaner"></div>
@@ -49,8 +50,7 @@ $(document).ready(function() {
 
     	<div id="gallery">
                 <ul>
-                <?php  require "class/RoomMgnt.php";
-                $roomdetail = RoomMgnt::getRoom($roomid); ?>
+                
                 
                     <li>
                         
