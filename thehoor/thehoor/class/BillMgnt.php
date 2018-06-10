@@ -36,7 +36,7 @@
 		}
 		return null;
 	}
-	public static function getRoomByBillID($bill_id){
+	public static function getMemByBillID($bill_id){
 		require "class/Member.php";
 		require 'conn.php';
 		$conn = new mysqli($hostname, $username, $password, $dbname);
@@ -62,5 +62,6 @@
 		}
 		return null;
 	}
+	
 }
 ?>

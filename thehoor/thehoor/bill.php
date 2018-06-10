@@ -1,6 +1,6 @@
 <html>
  <?php require 'class/BillMgnt.php';
- $mem = BillMgnt::getRoomByBillID(111);?>
+ $mem = BillMgnt::getMemByBillID(111);?>
     <head>
     <title>Simple invoice in PHP</title>
         <style type="text/css">
@@ -104,9 +104,11 @@
                 </tr>
  
             <?php 
-            $billno = BillMgnt::getBillByBillID2($mem -> getMroom());echo $billno -> getbillnum();
-            $bill = BillMgnt::getBillByBillID($billno->getbillnum());
+            require "class/RoomMgnt.php";
             
+            $billno = BillMgnt::getBillByBillID2($mem -> getMroom());//echo $billno -> getbillnum();
+            $bill = BillMgnt::getBillByBillID($billno->getbillnum());
+            $roomdetail = RoomMgnt::getRoombyRoomNumber($mem -> getMroom());
             $total = 0;
             $vat = 1;
             $elec=$bill->getelec();
@@ -124,7 +126,7 @@
                     $amount = $articles[1][0];
                     $unit_price = number_format( $articles[2][0], 2);
                     $total_price = number_format( $amount * $unit_price, 2);
-                    //$total =$total + $total_price;
+                    
                     echo("<tr>");
                     echo("<td>$description</td>");
                     echo("<td class='text-center'>$amount</td>");
@@ -147,7 +149,7 @@
                     $description = $articles[0][2];
                     $amount = $articles[1][2];
                     $unit_price = number_format( $articles[2][2], 2);
-                    $total_price = $amount * $unit_price;
+                    $total_price = number_format( $roomdetail -> getRPrice(), 2);
                     //$total += $total_price;
                     echo("<tr>");
                     echo("<td>$description</td>");
@@ -167,19 +169,16 @@
                     echo("<td class='text-right'>$unit_price</td>");
                     echo("<td class='text-right'>$total_price</td>");
                     echo("</tr>");
-            
+                    $res = ($elec*5)+($water*5)+$roomdetail -> getRPrice()+$personal;
              
             echo("<tr>");
             echo("<td colspan='3' class='text-right'>Sub total</td>");
-            echo("<td class='text-right'>" . number_format($total,2) . "</td>");
+            echo("<td class='text-right'>" . number_format($res,2) . "</td>");
             echo("</tr>");
-            echo("<tr>");
-            echo("<td colspan='3' class='text-right'>VAT</td>");
-            echo("<td class='text-right'>" . number_format(($total*$vat)/100,2) . "</td>");
-            echo("</tr>");
+            
             echo("<tr>");
             echo("<td colspan='3' class='text-right'><b>TOTAL</b></td>");
-            echo("<td class='text-right'><b>" . number_format(((($total*$vat)/100)+$total),2) . "</b></td>");
+            echo("<td class='text-right'><b>" . number_format($res,2) . "</b></td>");
             echo("</tr>");
             ?>
             </table>
