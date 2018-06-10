@@ -34,7 +34,7 @@ $(document).ready(function() {
 
 		<div id="tooplate_sp_middle">
 			<div id="mid_title">
-				เลือกขนาดของห้อง
+				เลือกขนาดของห้องทีท่านตองการ
 			</div>
 			<p></p>
 			<div class="cleaner"></div>
@@ -46,22 +46,22 @@ $(document).ready(function() {
                 <ul>
                     <li>
                         <span><a href="room-detail.php?r_type=<?php echo 1;?>">ห้องขนาดเล็ก</a></span>
-                        <a class="pirobox" href="images/gallery/image_01_b.jpg" title="Project I">
-                            <img src="images/gallery/image_01.jpg" alt="Image" class="image_wrapper" />
+                        <a class="pirobox" href="images/SingleBeddedRoom01.jpg" title="Project I">
+                            <img src="images/SingleBeddedRoom01.jpg" alt="Image" class="image_wrapper" />
                         </a>
 						<h4>ห้องเล็กเหมาะสำหรับผู้อาศัย 1คน</h4></a>
 					</li>
                     <li>
                         <span><a href="room-detail.php?r_type=2">ห้องขนาดกลาง</a></span>
-                        <a class="pirobox" href="images/gallery/image_02_b.jpg" title="Project II">
-                        	<img src="images/gallery/image_02.jpg" alt="Image" class="image_wrapper" />
+                        <a class="pirobox" href="images/gallery/Hotel.jpg" title="Project II">
+                        	<img src="images/Hotel.jpg" alt="Image" class="image_wrapper" />
                         </a>
                        <h4> ห้องกลางหมาะสำหรับผู้อาศัย 1-2คน</h4></a>
                     </li>
                     <li class="lmb">
                         <span><a href="room-detail.php?r_type=3">ห้องขนาดใหญ่</a></span>
-                        <a class="pirobox" href="images/gallery/image_03_b.jpg" title="Project III">
-                        	<img src="images/gallery/image_03.jpg" alt="Image" class="image_wrapper" />
+                        <a class="pirobox" href="images/gallery/faddd.jpg" title="Project III">
+                        	<img src="images/faddd.jpg" alt="Image" class="image_wrapper" />
                         </a>
                          <h4>ห้องใหญ่เหมาะสำหรับผู้อาศัย 2-3คน</h4></a>
                     </li>

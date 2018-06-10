@@ -10,7 +10,7 @@ include "include/header.php";
     <div id="tooplate_middle">
     	<img src="images/tooplate_icon.png" alt="Image" />
     	<div id="mid_title">
-        	Welcome to Orange Sea!
+        	Welcome to The Hoor!
         </div>
         <p>Pellentesque in orci enim. Duis quis odio quam, at faucibus est. Donec a molestie felis. Sed semper venenatis posuere. Sed eu massa elit, id mollis neque.</p>
         <div id="learn_more"><a href="#"></a></div>

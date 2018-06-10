@@ -44,13 +44,13 @@ http://www.tooplate.com/view/2037-orange-sea
                 <li <?=($file == "index")? " class=\"active\"" : "" ; ?>><a href="index.php">Home</a></li>
                 <li <?=($file == "room")? " class=\"active\"" : "" ; ?>><a href="room.php">Room</a></li>
                 <li <?=($file == "about")? " class=\"active\"" : "" ; ?>><a href="about.php">About Us</a></li>
-                <li <?=($file == "blog")? " class=\"active\"" : "" ; ?>><a href="blog.php">Blog</a></li>
+                <li <?=($file == "blog")? " class=\"active\"" : "" ; ?>><a href="myroom.php">Myroom</a></li>
                 
-                <li <?=($file == "login")? " class=\"active\"" : "" ; ?>><a href="Login.php">Login</a></li>
+                
                 <?php
                     if(isset($_SESSION["a_id"])){
                 ?>
-                      <li <?=($file == "contact")? " class=\"active\"" : "" ; ?>><a href="AddAccount.php">Add</a></li>
+                      <li <?=($file == "contact")? " class=\"active\"" : "" ; ?>><a href="AddAccount.php">Add Accout</a></li>
                 <?php
                     }
                 ?>
