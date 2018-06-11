@@ -1,12 +1,16 @@
+
 <?php
 
-$path = "room-detail.php";
+$path = "my.php";
 include "include/header.php";
-$roomid=$_GET['r_type'];
+//$roomid=$_GET['r_type'];
+require "class/RoomMgnt.php";
+//require "class/RoomDetail.php";
+$rnm=$_GET['rn'];
 
-
-
-
+$roomnum = RoomMgnt::getMembyRoomID2($rnm);
+//echo $roomnum -> getMroom();
+$room = RoomMgnt::getRoombyRoomNumber($roomnum -> getrID());
 //$r_type= (string)$roomid;
 ?>
 
@@ -36,29 +40,27 @@ $(document).ready(function() {
 });
 </script>
 <!--////// END  \\\\\\\-->
-<?php  	require_once 'class/RoomMgnt.php';
-                $roomdetail = RoomMgnt::getRoom($roomid); ?>
+<?php
+
+                $roomdetai = RoomMgnt::getRoom($room -> getRoomType()); ?>
 
 		<div id="tooplate_sp_middle">
 			<div id="mid_title">
-				ห้องขนาด<?php  if($roomid == "1"){
+			<br>คุณ  <?php echo $roomnum -> getFname(); ?> <?php echo $roomnum -> getLname();?> </br>
+				<br>ห้องขนาด<?php  if($room -> getRoomType()== "1"){
 				echo "เล็ก";
-				} else if($roomid == "2"){
+			} else if($room -> getRoomType()== "2"){
 					echo "กลาง";
 				}
-				else if($roomid == "3"){
+				else if($room -> getRoomType()== "3"){
 					echo "ใหญ่";
 				}
 
-				?>
-				<br>
-				<br>	จำนวนห้องที่ว่าง :: <?php
-                $roomm = RoomMgnt::getRoom2($roomid);
-                echo $roomm -> getRQuan();
-                ?> </br>
+
+
+				?> </br>
 			</div>
-
-
+			<p></p>
 			<div class="cleaner"></div>
 		</div> <!-- end of middle -->
 
@@ -67,18 +69,17 @@ $(document).ready(function() {
     	<div id="gallery">
                 <ul>
 
-
+                <h6>Roommate :: <?php echo $roomnum -> getMate();?></h6>
                     <li>
 
-                        <a class="pirobox" href="images/<?php echo $roomdetail -> getRoomImage();?>.jpg" title="Project I">
-                            <img src="images/<?php echo $roomdetail -> getRoomImage();?>.jpg" alt="Image" class="image_wrapper" />
+                        <a class="pirobox" href="images/<?php echo $roomdetai -> getRoomImage();?>.jpg" title="Project I">
+                            <img src="images/<?php echo $roomdetai -> getRoomImage();?>.jpg" alt="Image" class="image_wrapper" />
                         </a>
 						<h4></h4></a>
 						<div class="tab1">
 
 							<div class="single_page">
-								<h6>รายละเอียด</h6>
-								<p><?php echo $roomdetail->getRoomDes();?></p>
+
 								<br>*** ค่าส่วนกลาง 500 ***</br>
 								<h6>ค่าส่วนกลางประกอบด้วยประกอบด้วย :: </h6>
 								<h6>ค่าบริการรถตู้รับส่ง</h6>
@@ -86,9 +87,14 @@ $(document).ready(function() {
 								<h6>ค่าบริการซ่อมบำรุงลิฟท์</h6>
 								<h6>ค่าบริการฟิตเนส</h6>
 								<h6>ค่าบริการ รปภ. เเละบริการที่จอดรถ</h6>
-								<br>ราคาห้อง ::</br>
-								<p><?php echo $roomdetail->getRoomPrice();?> บาท</p>
+								<br>ราคาห้อง :: <?php echo $roomdetai->getRoomPrice();?> บาท</br>
+								<p></p>
+							<form method="post" name="contact" action="billhistory.php?m_id=<?php echo $roomnum -> getrID();?>">
 
+							<br></br>
+							<input type="submit" value="My Bill " id="submit" name="login" class="submit_btn float_l" />
+
+						</form><br></br>
 								<br>ติดต่อหอพักโทร :: 091-111-1111 , 02-111-1111</br>
 								<br>EMAIL :: thehoorisdabest@hotmail.com</br>
 

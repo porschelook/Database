@@ -126,11 +126,7 @@ include "class/BillPersonal.php";
         </tr>
         </table>
 				</div>
-        <div class="post_box">
-          <h2>Room Description</h2>
-          <img src="images/SingleBeddedRoom01.jpg" class="image_wrapper" alt="Image 02" />
-          <p><?php echo $room->getRoomDes();?></p>
-        </div>
+
 			</div>
 
 

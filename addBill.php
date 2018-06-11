@@ -4,7 +4,7 @@
   include "class/BillPersonal.php";
 
   $billnum = '';
-  $billstatus = '';
+  $billstatus = 1;
   $roomid = $_REQUEST['roomid'];
   $electric = $_REQUEST['electric'];
   $water = $_REQUEST['water'];

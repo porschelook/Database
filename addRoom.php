@@ -4,7 +4,6 @@
   include "class/RoomDetail.php";
 
 
-
   $roomid = $_REQUEST['roomid'];
   $roomdes = $_REQUEST['roomdes'];
   $roomtype = $_REQUEST['roomtype'];

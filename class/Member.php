@@ -138,6 +138,25 @@ class Member
 
   }
 
+  public function myroom($conn)
+	{
+		$sql = "SELECT * FROM member WHERE m_rid = '".$this->_rid."' AND m_cid = '".$this->_cid."'";
+		$rs = $conn->query($sql) or die($sql."<br>".$conn->error);     //save information from table to object
+		$data = $rs->fetch_array();  //mysqli_fecth_array($object);
+		if(!$data){
+			echo "<script>alert('Can not find your room.');window.history.back()</script>";
+		}else{
+			session_start();
+			$_SESSION["m_rid"] = $data['m_cid'];
+			session_write_close();
+			echo "<script>alert('Room found!');window.location='my.php?rn=$this->_rid'</script>";
+
+
+		}
+
+
+		$conn->close();
+	}
 
 }
 

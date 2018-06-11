@@ -48,10 +48,10 @@ $(document).ready(function() {
 
 						<form method="post" name="contact" action="Login.php">
 
-							<label for="author">ID:</label> <input type="text" id="author" name="ausername" class="required input_field" />
+							<font color="White"><label for="author">ID:</label> <input type="text" id="author" name="ausername" class="required input_field" /></font>
 							<div class="cleaner h10"></div>
 
-							<label for="email">Password:</label> <input type="password" class="validate-email required input_field" name="apassword" id="email" />
+							<font color="White"><label for="email">Password:</label> <input type="password" class="validate-email required input_field" name="apassword" id="email" /></font>
 							<div class="cleaner h10"></div>
 
 							<input type="submit" value="Login" id="submit" name="login" class="submit_btn float_l" />

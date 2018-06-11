@@ -1,7 +1,15 @@
-
 <?php
-$path = "myroom.php";
+
+$path = "billhistory.php";
 include "include/header.php";
+$roomid=$_GET['m_id'];
+//require "class/RoomMgnt.php";
+require 'class/BillMgnt.php';
+//$room = RoomMgnt::getRoombyRoomNumber($roomnum -> getMroom());
+$roomnum = BillMgnt::getMemByBillID($roomid);
+$billarr = BillMgnt::getAllBill($roomid);
+
+//$r_type= (string)$roomid;
 ?>
 
 
@@ -31,39 +39,48 @@ $(document).ready(function() {
 </script>
 <!--////// END  \\\\\\\-->
 
-
 		<div id="tooplate_sp_middle">
 			<div id="mid_title">
-				MY ROOM
+				<?php echo $roomnum -> getFname(); ?> <?php echo $roomnum -> getLname();?>
+
+
+                       </div>
 			</div>
-			<p>Please Complete the field.</p>
+			<p></p>
 			<div class="cleaner"></div>
 		</div> <!-- end of middle -->
 
-		<div id="tooplate_main">
+     <div id="tooplate_main">
+<?php	foreach ($billarr as $bill) {?>
+    	<div id="gallery">
+                <ul>
+        <li>
+        	<div class="tab1">
+				<div class="single_page">
+							<li><a rel="nofollow" href="bill.php?bnum=<?php echo $bill -> getbillnum(); ?>">Bill NO :: <?php echo $bill -> getbillnum(); ?></a></li>
+							<font color="White"><p>สถานะ  :: <?php  if($bill -> getBillStatus()== "0"){
 
-			<div class="col_w450 float_l">
-					<div id="contact_form">
+						echo "ชำระเงินเเล้ว";
+				} else if($bill -> getBillStatus()=="1"){
+						echo "ยังไม่ได้ทำการชำระเงิน";
+					}
 
 
 
-						<form method="post" name="contact" action="check.php" >
 
-							<font color="White"><label for="author">ห้องเลขที่ :</label> <input type="text" id="author" name="m_rid" class="required input_field" /></font>
-							<div class="cleaner h10"></div>
+					?>  </p></font>
+                         </div>
+						</div>
+					</li>
 
-							<font color="White"><label for="email">เลขบัตรประชาชน </label> <input type="text" class="validate-email required input_field" name="m_cid" id="email" /></font>
-							<div class="cleaner h10"></div>
+              </ul>
+              <div class="cleaner"></div>
+          </div>
 
-							<input type="submit" value="ตกลง" id="submit" name="myroom" class="submit_btn float_l" />
+    	<div class="cleaner"></div>
+    </div> <?php }?><!-- end of main -->
 
-						</form >
 
-					</div>
-				</div>
-
-			<div class="cleaner"></div>
-		</div> <!-- end of main -->
 
 	</div> <!-- end of fp wrapper -->
 </div> <!-- end of fp 100% wrapper -->
