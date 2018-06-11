@@ -30,6 +30,7 @@ class Room
 	
 	
 	
+	
 	public function setRType($RType)
 	{
 		$this->RType= $RType;

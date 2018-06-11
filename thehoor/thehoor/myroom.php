@@ -1,3 +1,4 @@
+
 <?php
 $path = "myroom.php";
 include "include/header.php";
@@ -30,7 +31,7 @@ $(document).ready(function() {
 </script>
 <!--////// END  \\\\\\\-->
 
-
+	 
 		<div id="tooplate_sp_middle">
 			<div id="mid_title">
 				MY ROOM
@@ -46,17 +47,17 @@ $(document).ready(function() {
 
 
 
-						<form method="post" name="contact" action="myroom.php">
+						<form method="post" name="contact" action="check.php" >
 
 							<label for="author">ห้องเลขที่ :</label> <input type="text" id="author" name="m_rid" class="required input_field" />
 							<div class="cleaner h10"></div>
 
 							<label for="email">เลขบัตรประชาชน </label> <input type="password" class="validate-email required input_field" name="m_cid" id="email" />
 							<div class="cleaner h10"></div>
+						
+							<input type="submit" value="ตกลง" id="submit" name="myroom" class="submit_btn float_l" />
 
-							<input type="submit" value="ตกลง" id="submit" name="login" class="submit_btn float_l" />
-
-						</form>
+						</form >
 
 					</div>
 				</div>

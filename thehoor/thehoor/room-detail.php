@@ -4,7 +4,8 @@ $path = "gallery.php";
 include "include/header.php";
 $roomid=$_GET['r_type'];
 
-	
+
+
 
 //$r_type= (string)$roomid;
 ?>
@@ -35,9 +36,9 @@ $(document).ready(function() {
 });
 </script>
 <!--////// END  \\\\\\\-->
-<?php  require "class/RoomMgnt.php";
+<?php  	require_once 'class/RoomMgnt.php'; 
                 $roomdetail = RoomMgnt::getRoom($roomid); ?>
-
+				
 		<div id="tooplate_sp_middle">
 			<div id="mid_title">
 				ห้องขนาด<?php  if($roomid == "1"){
@@ -48,12 +49,16 @@ $(document).ready(function() {
 				else if($roomid == "3"){
 					echo "ใหญ่";
 				}
-				
-				
-				
+	
 				?> 
+				<br>
+				<br>	จำนวนห้องที่ว่าง :: <?php  	 
+                $roomm = RoomMgnt::getRoom2($roomid); 
+                echo $roomm -> getRQuan();
+                ?> </br>
 			</div>
-			<p></p>
+		
+			
 			<div class="cleaner"></div>
 		</div> <!-- end of middle -->
 

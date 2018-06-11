@@ -57,7 +57,17 @@ $(document).ready(function() {
         <li>
         	<div class="tab1">
 				<div class="single_page">
-							<li><a rel="nofollow" href="bill.php?bnum=<?php echo $bill -> getbillnum(); ?>">Bill NO :: <?php echo $bill -> getbillnum(); ?></a></li>
+							<li><a rel="nofollow" href="bill.php?bnum=<?php echo $bill -> getbillnum(); ?>">Bill NO :: <?php echo $bill -> getbillnum(); ?></a></li> 
+							<p>สถานะ  :: <?php  if($bill -> getroomstatus()== "0"){
+					echo "ชำระเงินเเล้ว";
+							} else if($bill -> getroomstatus()=="1"){
+						echo "ยังไม่ได้ทำการชำระเงิน";
+					}
+					
+				
+				
+				
+					?>  </p>
                          </div>
 						</div>
 					</li>

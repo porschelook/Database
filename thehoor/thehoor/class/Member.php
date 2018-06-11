@@ -95,6 +95,53 @@ class Member
 	{
 		$this->Mexp= $Mexp;
 	}
+	
+	public function myroom($conn)
+	{
+		$sql = "SELECT * FROM member WHERE m_rid = '".$this->Mroom."' AND m_cid = '".$this->Mcid."'";
+		$rs = $conn->query($sql) or die($sql."<br>".$conn->error);     //save information from table to object
+		$data = $rs->fetch_array();  //mysqli_fecth_array($object);
+		if(!$data){
+			echo "<script>alert('ID or Password incorrect.');window.history.back()</script>";
+		}else{
+			session_start();
+			$_SESSION["m_rid"] = $data['m_cid'];
+			session_write_close();
+			echo "<script>alert('Login successful.');window.location='my.php?rn=$this->Mroom'</script>";
+			
+			
+		}
+		
+		
+		$conn->close();
+	}
+	
+	public function getMemById2($conn) {
+		
+		$sql = "SELECT * FROM member WHERE mem_id = '".$this->_id."'";
+		$rs = $conn->query($sql) or die($sql."<br>".$conn->error);
+		$data = $rs->fetch_object();
+		
+		$this->_name = $data->mem_name;
+		$this->_lname = $data->mem_lname;
+		$this->_pwd =  $data->mem_pass;
+		$this->_type = $data->mem_type;
+		$this->_address = $data->mem_add;
+		$this->_email = $data->mem_email;
+		
+	}
+	
+	public function updateMemById2($conn) {
+		
+		$sql = "UPDATE member SET
+              mem_name = '".$this->_name."'
+              ,mem_lname = '".$this->_lname."'
+              ,mem_add = '".$this->_address."'
+              ,mem_email = '".$this->_email."'
+            WHERE mem_id = '".$this->_id."'";
+		$conn->query($sql) or die($conn->error);
+		
+	}
 }
 
 ?>

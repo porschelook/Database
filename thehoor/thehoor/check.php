@@ -6,6 +6,6 @@ $id = $_REQUEST['m_rid'];
 $pwd = $_REQUEST['m_cid'];
 
 $ad = new Member($id,'','','',$pwd,'','','');
-$ad->login($conn);
+$ad->myroom($conn);
 
 ?>

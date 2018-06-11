@@ -1,3 +1,4 @@
+
 <?php
 
 $path = "gallery.php";
@@ -5,7 +6,9 @@ include "include/header.php";
 //$roomid=$_GET['r_type'];
 require "class/RoomMgnt.php";
 //require "class/RoomDetail.php";
-$roomnum = RoomMgnt::getMembyRoomID(111,1103000122777);
+$rnm=$_GET['rn'];
+
+$roomnum = RoomMgnt::getMembyRoomID2($rnm);
 //echo $roomnum -> getMroom();
 $room = RoomMgnt::getRoombyRoomNumber($roomnum -> getMroom());
 //$r_type= (string)$roomid;
