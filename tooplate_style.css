@@ -104,14 +104,14 @@ h6 { font-size: 14px; margin: 0 0 5px; padding: 0; }
 	text-decoration: underline;
 }
 
-#tooplate_fp_100_wrapper { width: 100%; background: url(images/tooplate_fp_wrapper.jpg) top center no-repeat }
-#tooplate_sp_100_wrapper { width: 100%; background: url(images/tooplate_sp_wrapper.jpg) top center no-repeat }
+#tooplate_fp_100_wrapper { width: 100%; background: url(images/bg.jpg) top center no-repeat }
+#tooplate_sp_100_wrapper { width: 100%; background: url(images/bg.jpg) top center no-repeat }
 
 #tooplate_fp_wrapper {
 	width: 960px;
 	padding: 0 10px;
 	margin: 0 auto;
-	background: url(images/tooplate_fp_wrapper.jpg) top center no-repeat;
+	background: url(images/bg.jpg) top center no-repeat;
 }
 
 #tooplate_sp_wrapper {

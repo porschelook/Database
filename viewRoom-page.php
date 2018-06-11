@@ -30,6 +30,7 @@ include "class/BillPersonal.php";
   $rmemail = "";
 
   $billid = "";
+  $billstatus = "";
 
   $elec = "";
   $water = "";
@@ -44,7 +45,7 @@ include "class/BillPersonal.php";
   $mate = new Mate($roomid,$rmfname,$rmlname,$rmcid,$rmphone,$rmemail);
   $mate->getMateById($conn,$_REQUEST['roomid']);
 
-  $bill = new Bill($billid,$roomid);
+  $bill = new Bill($billid,$roomid,$billstatus);
   $bill->getBillByID($conn,$_REQUEST['roomid']);
 
   $billnum = $bill->getbillnum();
@@ -110,13 +111,13 @@ include "class/BillPersonal.php";
           <table frame="box">
             <tr>
               <th>
-          <form action="viewRoomBillUpdate.php" method="post">
+          <form action="addBill.php" method="post">
           <p><input type="hidden" name="billnum" value="<?php echo $billperson->getbillnum(); ?>"></p>
+          <p><input type="hidden" name="roomid" value="<?php echo $room->getRoomID(); ?>"></p>
           <p><font color="White"> <?php echo 'วันหมดอายุสัญญา : ' . $mem->getExp() . ' (ปี/เดือน/วัน)';?></font></p>
-          <p><font color="White"> <?php echo 'ยอดค้างชำระรวม : ' . $total;?></font>
-          <p><font color="White"> <?php echo 'ยอดค้างค่าไฟ : ' ;?></font> <label for="author"></label> <input type="text" id="author" name="electric" value="<?php echo $billperson->getelec() ;?>" class="required input_field" /><?php echo ' บาท';?></p>
-          <p><font color="White"> <?php echo 'ยอดค้างค่าน้ำ : ' ;?></font> </label> <input type="text" id="author" name="water" value=" <?php echo $billperson->getwater() ;?>" class="required input_field" /><?php echo ' บาท';?></p> <label for="author">
-          <p><font color="White"> <?php echo 'ยอดค้างค่าเช่า: ' ;?></font> <label for="author"></label> <input type="text" id="author" name="rent" value=" <?php echo $billperson->getpersonal() ;?>" class="required input_field" /><?php echo ' บาท';?></p>
+          <p><font color="White"> <?php echo 'ค่าไฟ : ' ;?></font> <label for="author"></label> <input type="text" id="author" name="electric" value="" /><?php echo ' บาท';?></p>
+          <p><font color="White"> <?php echo 'ค่าน้ำ : ' ;?></font> </label> <input type="text" id="author" name="water" value="" /><?php echo ' บาท';?></p> <label for="author">
+          <p><font color="White"> <?php echo 'ค่าเช่าส่วนกลาง : ' ;?></font> <label for="author"></label> <input type="text" id="author" name="rent" value="" class="required input_field" /><?php echo ' บาท';?></p>
           <p></p>
           <p><input type="submit" value="เพิ่ม Bill" name="proceed" class="checkout-button button alt wc-forward"><p>
           </form>

@@ -78,6 +78,16 @@ class BillPersonal
 
 	 }
 
+	 public function addBillPersonal($conn)
+	 {
+		 $sql = "INSERT INTO BillPersonal
+							 (billNumber, electric, water, personal)
+							 VALUES
+							 ('".$this->billnum."','".$this->elec."','".$this->water."','".$this->personal."')";
+		 $conn->query($sql) or die($sql."<br>".$conn->error);
+		 echo "<script>alert('Bill Added.');window.history.back()</script>";
+	 }
+
 
 }
 

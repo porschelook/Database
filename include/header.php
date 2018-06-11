@@ -42,7 +42,6 @@ http://www.tooplate.com/view/2037-orange-sea
                   $file = basename($path, ".php"); // $file is set to "index"
                 ?>
                 <li <?=($file == "index")? " class=\"active\"" : "" ; ?>><a href="index.php">Home</a></li>
-                <li <?=($file == "blog")? " class=\"active\"" : "" ; ?>><a href="blog.php">Blog</a></li>
                 <li <?=($file == "gallery")? " class=\"active\"" : "" ; ?>><a href="room.php">Room</a></li>
                 <?php
                     if(isset($_SESSION["a_id"])){
