@@ -1,6 +1,6 @@
 <?php
 
-$path = "my.php";
+$path = "gallery.php";
 include "include/header.php";
 //$roomid=$_GET['r_type'];
 require "class/RoomMgnt.php";

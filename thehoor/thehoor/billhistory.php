@@ -7,7 +7,8 @@ $roomid=$_GET['m_id'];
 require 'class/BillMgnt.php';
 //$room = RoomMgnt::getRoombyRoomNumber($roomnum -> getMroom());
 $roomnum = BillMgnt::getMemByBillID($roomid);
-$billarr= BillMgnt::getAllBill($roomid);
+$billarr = BillMgnt::getAllBill($roomid);
+
 //$r_type= (string)$roomid;
 ?>
 
@@ -41,37 +42,32 @@ $(document).ready(function() {
 		<div id="tooplate_sp_middle">
 			<div id="mid_title">
 				<?php echo $roomnum -> getMfname(); ?> <?php echo $roomnum -> getMlname();?>
+				  
+                      	
+                       </div>
 			</div>
 			<p></p>
 			<div class="cleaner"></div>
 		</div> <!-- end of middle -->
 
-    <div id="tooplate_main">
-
+     <div id="tooplate_main">
+<?php	foreach ($billarr as $bill) {?>
     	<div id="gallery"> 
                 <ul>
-                
-                
-                    <li>
-                        <div class="tab1">
-
-							<div class="single_page">
-                      <?php 
-                      foreach ($billarr as $bill) {?>
-                       <?php echo $billarr -> getbillnum();?>
-                       <?php }?>
-                       </div>
+        <li>
+        	<div class="tab1">
+				<div class="single_page">
+							<li><a rel="nofollow" href="bill.php?bnum=<?php echo $bill -> getbillnum(); ?>">Bill NO :: <?php echo $bill -> getbillnum(); ?></a></li>
+                         </div>
 						</div>
 					</li>
                    
-                   
               </ul>
-
               <div class="cleaner"></div>
           </div>
 
     	<div class="cleaner"></div>
-    </div> <!-- end of main -->
+    </div> <?php }?><!-- end of main -->
 
 
 

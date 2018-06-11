@@ -2,15 +2,15 @@
 class Bill
 {
 	
-	private $billnum, $RName;
+	private $billnum, $roomnum,$roomstatus;
 	
-	public function __construct( $billnum,$RName)
+	public function __construct( $billnum,$roomnum,$roomstatus)
 	{
 		
 		$this->billnum= $billnum;
 		
-		$this->RName= $RName;
-		
+		$this->roomnum= $roomnum;
+		$this->roomstatus= $roomstatus;
 	}
 	
 	
@@ -18,21 +18,32 @@ class Bill
 	
 	
 	
-	public function getRName()
+	public function getroomnum()
 	{
-		return $this->RName;
+		return $this->roomnum;
 	}
 	
 	public function getbillnum()
 	{
 		return $this->billnum;
 	}
-	
-	
-	
-	public function setRName($RName)
+	public function getroomstatus()
 	{
-		$this->RName= $RName;
+		return $this->roomstatus;
+	}
+	
+	
+	
+	public function setroomstatus($roomstatus)
+	{
+		$this->roomstatus= $roomstatus;
+	}
+	
+	
+	
+	public function setroomnum($roomnum)
+	{
+		$this->roomnum= $roomnum;
 	}
 	
 	

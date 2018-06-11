@@ -1,6 +1,11 @@
 <html>
  <?php require 'class/BillMgnt.php';
- $mem = BillMgnt::getMemByBillID(111);?>
+ require "class/RoomMgnt.php";
+ $billid=$_GET['bnum'];
+ $bill = BillMgnt::getBillByBillID($billid);
+ $billno = BillMgnt::getBillByBillID2($billid);
+ 
+ $mem = BillMgnt::getMemByBillID($billno -> getroomnum());?>
     <head>
     <title>Simple invoice in PHP</title>
         <style type="text/css">
@@ -69,16 +74,15 @@
     <body>
     <div class="invoice">
         <div class="company-address">
-            ACME ltd
+            Bill NO :: <?php echo $billid?> 
             <br />
-            489 Road Street
+            Room ::	<?php echo $billno -> getroomnum()?>
             <br />
-            London, AF3Z 7BP
-            <br />
+           
         </div>
      
         <div class="invoice-details">
-            Invoice N°: 564
+            
             <br />
             Date: 24/01/2012
         </div>
@@ -104,10 +108,10 @@
                 </tr>
  
             <?php 
-            require "class/RoomMgnt.php";
+           
             
-            $billno = BillMgnt::getBillByBillID2($mem -> getMroom());//echo $billno -> getbillnum();
-            $bill = BillMgnt::getBillByBillID($billno->getbillnum());
+            //echo $billno -> getbillnum();
+            
             $roomdetail = RoomMgnt::getRoombyRoomNumber($mem -> getMroom());
             $total = 0;
             $vat = 1;
@@ -182,7 +186,9 @@
             echo("</tr>");
             ?>
             </table>
+            
         </div>
+       
     </body>
  
 </html>

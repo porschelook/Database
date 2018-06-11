@@ -53,11 +53,11 @@
 		require_once "class/Bill.php";
 		require 'conn.php';
 		$conn = new mysqli($hostname, $username, $password, $dbname);
-		$sql = "SELECT * FROM Bill WHERE roomNumber ='".$bill_id."'";
+		$sql = "SELECT * FROM Bill WHERE billNumber ='".$bill_id."'";
 		$query = $conn->query($sql);
 		$result = $query->fetch_assoc();
 		if($result){
-			$bill= new Bill($result['billNumber'], $result['roomNumber']);
+			$bill= new Bill($result['billNumber'], $result['roomNumber'], $result['billStatus']);
 			return $bill;
 		}
 		return null;
@@ -66,16 +66,22 @@
 	{	require_once "class/Bill.php";
 		require 'conn.php';
 		$conn = new mysqli($hostname, $username, $password, $dbname);
-		$sql = "SELECT * FROM Bill Where billNumber ='".$m_id."'";
+		$sql = "SELECT * FROM Bill Where roomNumber ='".$m_id."'";
 		$query = $conn->query($sql);
 		$resultArray = array();
-		$i = 0;
+		$count = 0;
 		while ($result = $query->fetch_array()) {
 			//$promotion = PromotionMgnt::getPromotionByProductID($result["PRO_INDEX"]);
-			$product = new Bill($result["billNumber"], $result["roomNumber"]);
+			$bnum = $result['roomNumber'];
+			$rnum =$result['billNumber'];
+			$rst =$result['billStatus'];
+			$product = new Bill($rnum, $bnum,$rst);
 			$resultArray[] = $product;
+			$count ++;
 		}
-		shuffle($resultArray);
+		if ($count === 0) {
+			return NULL;
+		}
 		return $resultArray;
 	}
 	
