@@ -121,23 +121,6 @@ class RoomDetail{
 
   }
 
-  public function getRoomByName($conn,$keyWord)
-  {
-
-      $sql = "SELECT * FROM product WHERE pname LIKE '%".$keyWord."%' ";
-      $rs = $conn->query($sql) or die($sql."<br>".$conn->error);
-
-      $tempArr = array();
-
-      while ($data = $rs->fetch_array()) {
-
-          $prod = new Product($data['pid'],$data['pname'],$data['pprice'],$data['pdetail'],$data['pimg'],$data['stock'],$data['discount']);
-          array_push($tempArr,$prod);
-      }
-
-      return $tempArr;
-  }
-
   public function deleteRoom($conn) {
     $sql = "DELETE FROM RoomDetail WHERE roomNumber = '".$this->_roomID."'";
     $conn->query($sql) or die($sql."<br>".$conn->error);
